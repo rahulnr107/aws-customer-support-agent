@@ -1,0 +1,24 @@
+﻿# Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+**/.streamlit/secrets.toml
+.vscode/
+
+# Local conversations and raw evidence
+sessions/
+state/
+
+# Generated dependencies and build output
+node_modules/
+**/agentcore/.cache/
+**/agentcore/.cli/
+**/agentcore/cdk/cdk.out/
+**/agentcore/cdk/cdk.context.json
+
+/csdeploy/agentcore/aws-targets.json
