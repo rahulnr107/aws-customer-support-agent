@@ -18,16 +18,7 @@ The assistant retrieves customer information, answers order enquiries, and handl
 
 ## Architecture
 
-```mermaid
-flowchart TD
-    USER["User"] --> UI["Streamlit Chat Interface"]
-    UI --> RUNTIME["Amazon Bedrock AgentCore Runtime"]
-    RUNTIME <--> MODEL["Amazon Bedrock — Nova Pro"]
-    RUNTIME --> TOOLS["Customer, Order and Refund Tools"]
-    CONTROLS["Skills, Hooks and Steering"] --> RUNTIME
-    RUNTIME <--> SESSION["Session Snapshots"]
-    RUNTIME --> LOGS["Amazon CloudWatch"]
-```
+![AWS Customer Support Agent Architecture](docs/architecture.svg)
 
 The Streamlit server sends messages to AgentCore using the AWS SDK.
 The deployed Strands agent manages the model and tool interactions,
@@ -169,10 +160,3 @@ demo inputs, not an authentication mechanism.
 Session snapshots demonstrate conversation continuity. In AgentCore,
 they use temporary storage and may be lost when the Runtime environment
 is replaced.
-
-## Acknowledgements
-
-The agent implementation adapts patterns and sample code from the
-[AWS Strands Agents hands-on workshop](https://github.com/aws-samples/sample-strands-agents-hands-on-workshop),
-with customized customer data, validation, prompts, workflow controls,
-deployment configuration, and a Streamlit interface.
